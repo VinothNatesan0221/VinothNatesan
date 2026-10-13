@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Vinoth Natesan — Data Analyst &amp; IT Support</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f6f8f9; --card:#ffffff; --ink:#10202a; --body:#41525d; --muted:#72818b;
+    --accent:#0f6b82; --accent-2:#0a4c5e; --rule:#dde4e8; --tint:rgba(15,107,130,.09);
+    box-sizing:border-box;
+    padding-top:env(safe-area-inset-top,0px);
+    padding-bottom:env(safe-area-inset-bottom,0px);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#0e1519; --card:#151e24; --ink:#eaf1f4; --body:#b4c2ca; --muted:#82929c;
+      --accent:#4cc0da; --accent-2:#8bdcee; --rule:#26343c; --tint:rgba(76,192,218,.12);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0e1519; --card:#151e24; --ink:#eaf1f4; --body:#b4c2ca; --muted:#82929c;
+    --accent:#4cc0da; --accent-2:#8bdcee; --rule:#26343c; --tint:rgba(76,192,218,.12);
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  html{scroll-behavior:smooth; scroll-padding-top:calc(64px + env(safe-area-inset-top,0px))}
+  body{margin:0; background:var(--bg); color:var(--body); font:400 16px/1.65 "Inter",-apple-system,"Helvetica Neue",Arial,sans-serif; -webkit-font-smoothing:antialiased}
+  a{color:var(--accent); text-decoration:none}
+  .wrap{max-width:1040px; margin:0 auto; padding:0 24px}
+
+  nav{position:sticky; top:0; z-index:20; background:color-mix(in srgb,var(--bg) 88%,transparent); backdrop-filter:blur(10px); border-bottom:1px solid var(--rule); padding-top:env(safe-area-inset-top,0px)}
+  nav .wrap{display:flex; align-items:center; justify-content:space-between; height:60px}
+  .logo{font-weight:800; color:var(--ink); letter-spacing:-.02em}
+  .logo b{color:var(--accent)}
+  nav ul{display:flex; gap:22px; list-style:none; margin:0; padding:0; font-size:14px; font-weight:500}
+  nav ul a{color:var(--body)}
+  nav ul a:hover{color:var(--accent)}
+
+  .hero{padding:84px 0 64px}
+  .eyebrow{display:inline-block; font-size:13px; font-weight:600; color:var(--accent); background:var(--tint); padding:6px 12px; border-radius:99px; margin-bottom:22px}
+  h1{font-size:clamp(38px,7vw,68px); line-height:1.04; letter-spacing:-.035em; font-weight:800; color:var(--ink); margin:0 0 20px}
+  h1 span{color:var(--accent)}
+  .lead{font-size:clamp(17px,2.2vw,20px); max-width:60ch; margin:0 0 30px}
+  .cta{display:flex; flex-wrap:wrap; gap:12px}
+  .btn{display:inline-block; font-weight:600; font-size:15px; padding:13px 22px; border-radius:10px; border:1px solid var(--rule); color:var(--ink); background:var(--card)}
+  .btn.primary{background:var(--accent); border-color:var(--accent); color:#fff}
+  :root[data-theme="dark"] .btn.primary{color:#06242c}
+  @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .btn.primary{color:#06242c}}
+  .btn:hover{transform:translateY(-1px)}
+
+  .stats{display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:54px}
+  .stat{background:var(--card); border:1px solid var(--rule); border-radius:14px; padding:20px}
+  .stat strong{display:block; font-size:30px; line-height:1.1; letter-spacing:-.03em; color:var(--ink); font-weight:800}
+  .stat span{font-size:13.5px; color:var(--muted)}
+
+  section{padding:64px 0; border-top:1px solid var(--rule)}
+  .label{font-size:13px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--accent); margin:0 0 10px}
+  h2{font-size:clamp(28px,4vw,38px); line-height:1.15; letter-spacing:-.025em; color:var(--ink); margin:0 0 28px; font-weight:700}
+  .about{display:grid; grid-template-columns:1.5fr 1fr; gap:40px; align-items:start}
+  .about p{margin:0 0 16px}
+  .facts{background:var(--card); border:1px solid var(--rule); border-radius:14px; padding:22px}
+  .facts dt{font-size:12px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); margin:0}
+  .facts dd{margin:2px 0 14px; color:var(--ink); font-weight:500}
+  .facts dd:last-child{margin-bottom:0}
+
+  .grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(290px,1fr)); gap:16px}
+  .card{background:var(--card); border:1px solid var(--rule); border-radius:14px; padding:24px}
+  .card h3{font-size:17px; color:var(--ink); margin:0 0 14px; letter-spacing:-.01em}
+  .chips{display:flex; flex-wrap:wrap; gap:8px}
+  .chips li{list-style:none; font-size:13.5px; font-weight:500; color:var(--accent-2); background:var(--tint); padding:6px 12px; border-radius:99px}
+  .chips{margin:0; padding:0}
+
+  .tl{position:relative; margin-left:8px; padding-left:28px; border-left:2px solid var(--rule)}
+  .job{position:relative; margin-bottom:34px}
+  .job:last-child{margin-bottom:0}
+  .job::before{content:""; position:absolute; left:-37px; top:7px; width:14px; height:14px; border-radius:50%; background:var(--accent); border:3px solid var(--bg)}
+  .job .when{font-size:13.5px; font-weight:600; color:var(--accent)}
+  .job h3{font-size:20px; color:var(--ink); margin:2px 0 2px; letter-spacing:-.015em}
+  .job .co{color:var(--muted); font-size:15px; margin-bottom:12px}
+  .job h4{font-size:13px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink); margin:16px 0 6px}
+  .job ul{margin:0; padding-left:18px}
+  .job li{margin-bottom:7px}
+  .job li::marker{color:var(--accent)}
+  .job.current{background:var(--card); border:1px solid var(--rule); border-radius:14px; padding:24px}
+  .job.current::before{left:-44px; top:30px}
+
+  .edu{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px}
+  .edu .card strong{display:block; color:var(--ink); font-size:16px}
+  .edu .card span{font-size:14px; color:var(--muted)}
+
+  .contact{text-align:center}
+  .contact p{max-width:52ch; margin:0 auto 26px}
+  .contact .cta{justify-content:center}
+  footer{padding:28px 0 36px; text-align:center; font-size:13.5px; color:var(--muted); border-top:1px solid var(--rule)}
+
+  .hero-grid{display:grid; grid-template-columns:1.1fr .9fr; gap:44px; align-items:center}
+  .visual svg{width:100%; height:auto; display:block; filter:drop-shadow(0 18px 40px rgba(15,60,80,.18))}
+  .avatar{width:84px; height:84px; border-radius:50%; margin:0 0 18px; display:grid; place-items:center; font-weight:800; font-size:28px; letter-spacing:-.02em; color:#fff; background:linear-gradient(135deg,var(--accent),#1c3f5c)}
+  .btn svg{width:16px; height:16px; vertical-align:-2px; margin-right:8px; fill:currentColor}
+  footer a{color:var(--muted); text-decoration:underline}
+  @media (max-width:900px){.hero-grid{grid-template-columns:1fr; gap:36px}}
+  @media (max-width:760px){
+    nav ul{display:none}
+    .stats{grid-template-columns:1fr 1fr}
+    .about{grid-template-columns:1fr}
+    .hero{padding:56px 0 44px}
+    .job.current::before{left:-37px}
+  }
+  @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto} .btn{transition:none}}
+  .btn{transition:transform .15s ease}
+  /* ---- cinematic studio restyle ---- */
+  html:root:root:root{--bg:#07090b; --card:#0e1316; --ink:#f4f7f8; --body:#a9b6bc; --muted:#6f7e86; --accent:#ff5a3c; --accent-2:#ffb199; --rule:#1d282e; --tint:rgba(255,90,60,.12)}
+  body::after{content:""; position:fixed; inset:0; pointer-events:none; z-index:50; opacity:.07; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+  .hero{position:relative; overflow:hidden; padding:96px 0 72px}
+  .hero::before{content:""; position:absolute; top:-25%; right:-15%; width:75%; height:130%; background:radial-gradient(closest-side,rgba(255,90,60,.24),rgba(255,90,60,0)); pointer-events:none}
+  .hero::after{content:""; position:absolute; left:-20%; bottom:-40%; width:60%; height:90%; background:radial-gradient(closest-side,rgba(255,177,153,.07),rgba(255,177,153,0)); pointer-events:none}
+  .hero .wrap{position:relative; z-index:1}
+  h1{text-transform:uppercase; font-size:clamp(40px,7.4vw,84px); line-height:.98; letter-spacing:-.045em}
+  h2{text-transform:uppercase; letter-spacing:-.03em}
+  .label,.eyebrow{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace; letter-spacing:.16em; text-transform:uppercase; font-size:12px}
+  .eyebrow{border:1px solid var(--rule); background:transparent; color:var(--accent-2)}
+  html:root:root:root .btn.primary{color:#1a0a05; background:var(--accent); border-color:var(--accent)}
+  .btn{border-radius:6px; text-transform:uppercase; letter-spacing:.06em; font-size:13px}
+  .card,.stat,.facts,.job.current{border-radius:8px}
+  .stat strong{color:var(--accent)}
+  .chips li{border:1px solid var(--rule); background:transparent; color:var(--body); border-radius:4px}
+  .avatar{background:linear-gradient(135deg,var(--accent),#7a1d0c); color:#fff}
+  .visual svg{filter:drop-shadow(0 28px 64px rgba(255,90,60,.2))}
+  section{padding:84px 0}
+  .job .when{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace; font-size:12.5px; letter-spacing:.08em; text-transform:uppercase}
+  @media (prefers-reduced-motion: reduce){body::after{display:none}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#top">Vinoth<b>.</b></a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-grid"><div>
+    <span class="eyebrow">Open to opportunities · Chennai, India</span>
+    <h1>Vinoth Natesan.<br><span>Data Analyst</span> cum IT Support.</h1>
+    <p class="lead">I turn scattered data into dependable reporting, and keep the systems behind it running. Over a decade across analytics, IT operations, remote support and application development.</p>
+    <div class="cta">
+      <a class="btn primary" href="mailto:Vino.201098@gmail.com">Get in touch</a>
+      <a class="btn" href="https://www.linkedin.com/in/vinoth-natesan-2b929113a/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>LinkedIn</a>
+    </div>
+    </div>
+    <div class="visual" aria-hidden="true">
+      <svg viewBox="0 0 460 380" xmlns="http://www.w3.org/2000/svg" font-family="Inter,Arial,sans-serif">
+        <rect x="2" y="2" width="456" height="376" rx="20" style="fill:var(--card);stroke:var(--rule);stroke-width:2"/>
+        <circle cx="28" cy="28" r="5" style="fill:var(--rule)"/><circle cx="46" cy="28" r="5" style="fill:var(--rule)"/><circle cx="64" cy="28" r="5" style="fill:var(--rule)"/>
+        <text x="96" y="32" font-size="12" font-weight="600" style="fill:var(--muted)">Operations dashboard</text>
+        <g font-size="11">
+          <rect x="24" y="56" width="128" height="64" rx="12" style="fill:var(--tint)"/>
+          <text x="38" y="78" style="fill:var(--muted)">Report run time</text>
+          <text x="38" y="106" font-size="22" font-weight="800" style="fill:var(--ink)">-98%</text>
+          <rect x="166" y="56" width="128" height="64" rx="12" style="fill:var(--tint)"/>
+          <text x="180" y="78" style="fill:var(--muted)">Manual entry</text>
+          <text x="180" y="106" font-size="22" font-weight="800" style="fill:var(--ink)">-15 h/mo</text>
+          <rect x="308" y="56" width="128" height="64" rx="12" style="fill:var(--tint)"/>
+          <text x="322" y="78" style="fill:var(--muted)">SLA</text>
+          <text x="322" y="106" font-size="22" font-weight="800" style="fill:var(--ink)">Met</text>
+        </g>
+        <g style="fill:var(--accent)">
+          <rect x="36" y="214" width="26" height="46" rx="5" opacity=".35"/><rect x="78" y="196" width="26" height="64" rx="5" opacity=".45"/><rect x="120" y="178" width="26" height="82" rx="5" opacity=".55"/><rect x="162" y="186" width="26" height="74" rx="5" opacity=".65"/><rect x="204" y="160" width="26" height="100" rx="5" opacity=".8"/><rect x="246" y="146" width="26" height="114" rx="5"/>
+        </g>
+        <polyline points="49,206 91,186 133,170 175,176 217,148 259,132" fill="none" style="stroke:var(--ink)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <line x1="28" y1="262" x2="290" y2="262" style="stroke:var(--rule)" stroke-width="2"/>
+        <text x="36" y="158" font-size="11" font-weight="600" style="fill:var(--muted)">KPI trend</text>
+        <g font-size="11.5" font-weight="500">
+          <rect x="310" y="148" width="126" height="114" rx="12" style="fill:none;stroke:var(--rule);stroke-width:2"/>
+          <circle cx="326" cy="172" r="7" style="fill:var(--accent)"/><text x="340" y="176" style="fill:var(--ink)">Access set up</text>
+          <circle cx="326" cy="202" r="7" style="fill:var(--accent)"/><text x="340" y="206" style="fill:var(--ink)">Remote fix</text>
+          <circle cx="326" cy="232" r="7" style="fill:var(--accent)"/><text x="340" y="236" style="fill:var(--ink)">Ticket closed</text>
+        </g>
+        <g fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M322.5 172l2.5 2.5 4-4.5"/><path d="M322.5 202l2.5 2.5 4-4.5"/><path d="M322.5 232l2.5 2.5 4-4.5"/></g>
+        <rect x="24" y="284" width="412" height="70" rx="12" style="fill:var(--tint)"/>
+        <text x="40" y="310" font-size="11" style="fill:var(--muted)">Pipeline</text>
+        <g style="fill:var(--card);stroke:var(--accent);stroke-width:2" font-size="11" font-weight="600">
+          <rect x="40" y="320" width="96" height="22" rx="11"/><rect x="176" y="320" width="96" height="22" rx="11"/><rect x="312" y="320" width="96" height="22" rx="11"/>
+        </g>
+        <g font-size="11" font-weight="600" text-anchor="middle" style="fill:var(--ink)"><text x="88" y="335">Extract</text><text x="224" y="335">Transform</text><text x="360" y="335">Load</text></g>
+        <g style="stroke:var(--accent);stroke-width:2" stroke-linecap="round"><line x1="140" y1="331" x2="172" y2="331"/><line x1="276" y1="331" x2="308" y2="331"/></g>
+      </svg>
+    </div>
+    </div>
+    <div class="stats">
+      <div class="stat"><strong>10+</strong><span>Years of experience</span></div>
+      <div class="stat"><strong>98%</strong><span>Faster report run times</span></div>
+      <div class="stat"><strong>15 hrs</strong><span>Manual entry removed monthly</span></div>
+      <div class="stat"><strong>L1/L2</strong><span>IT support with SLA focus</span></div>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap about">
+    <div>
+      <p class="label">About</p>
+      <h2>Analytics and IT, under one roof.</h2>
+      <p>I currently drive ETL automation, Google Looker Studio dashboarding and MIS reporting for business leadership, while also managing L1/L2 IT support, user access provisioning and system troubleshooting.</p>
+      <p>I have a track record of automating manual spreadsheet workflows, resolving complex technical incidents remotely, and maintaining reliable, secure system environments. I pair data engineering skills with hands-on systems administration and thorough process documentation.</p>
+    </div>
+    <dl class="facts">
+      <div class="avatar" aria-hidden="true">VN</div>
+      <dt>Current role</dt><dd>Data Analyst cum IT Support</dd>
+      <dt>Company</dt><dd>Culminant Executive Services</dd>
+      <dt>Location</dt><dd>Chennai, India</dd>
+      <dt>Languages</dt><dd>Tamil, English</dd>
+      <dt>Education</dt><dd>B.Sc Information Technology</dd>
+    </dl>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <p class="label">Skills</p>
+    <h2>What I work with.</h2>
+    <div class="grid">
+      <div class="card"><h3>Analytics &amp; data engineering</h3>
+        <ul class="chips"><li>Data analysis</li><li>Data mining</li><li>MIS reporting</li><li>KPI scorecards</li><li>Dashboard design</li><li>Data visualization</li><li>ETL automation</li><li>Data validation</li><li>Database optimization</li><li>Master data management</li><li>API integration</li></ul></div>
+      <div class="card"><h3>IT support &amp; systems administration</h3>
+        <ul class="chips"><li>L1/L2 support</li><li>Incident management</li><li>SLA compliance</li><li>Ticketing lifecycle</li><li>Root-cause analysis</li><li>Account management</li><li>Access provisioning</li><li>Onboarding/offboarding</li><li>Remote troubleshooting</li><li>Patch management</li><li>Windows OS</li><li>Printer &amp; network support</li></ul></div>
+      <div class="card"><h3>Tools &amp; technologies</h3>
+        <ul class="chips"><li>Google Looker Studio</li><li>Google Analytics</li><li>Advanced Excel</li><li>Power Query</li><li>SQL</li><li>AnyDesk</li><li>Git</li><li>Eclipse IDE</li><li>Java</li><li>JavaScript</li><li>HTML5</li><li>MS Office</li><li>Google Workspace</li></ul></div>
+      <div class="card"><h3>Business &amp; leadership</h3>
+        <ul class="chips"><li>Process automation</li><li>IT asset logging</li><li>Invoice documentation</li><li>Stakeholder reporting</li><li>Vendor coordination</li><li>Escalation handling</li><li>Team coordination</li><li>User training</li><li>Knowledge transfer</li><li>Process documentation</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <p class="label">Experience</p>
+    <h2>Where I've worked.</h2>
+    <div class="tl">
+
+      <article class="job current">
+        <span class="when">Feb 2024 – Present</span>
+        <h3>Data Analyst cum IT Support</h3>
+        <div class="co">Culminant Executive Services · Chennai</div>
+        <h4>Data analytics &amp; automation</h4>
+        <ul>
+          <li>Designed and automated ETL pipelines across recurring reporting feeds, cutting manual data preparation by 2 hours per week and eliminating reconciliation errors between source systems.</li>
+          <li>Built Google Looker Studio dashboards tracking KPIs across key business functions, replacing manually compiled spreadsheets with a single daily view used by leadership.</li>
+          <li>Analysed large datasets to identify trends and correlations, delivering insights that shaped staffing decisions and operational strategy.</li>
+          <li>Optimised database structures and SQL query logic, reducing report run times by 98%.</li>
+          <li>Integrated external APIs with internal systems, removing 15 hours of manual entry each month and improving data freshness.</li>
+          <li>Developed MIS reports and scorecards measuring service performance, tracking operational gaps through to closure.</li>
+        </ul>
+        <h4>IT support &amp; infrastructure</h4>
+        <ul>
+          <li>Provided L1/L2 technical support across local and remote teams, resolving hardware, software, printer and basic network issues while maintaining strict SLA compliance.</li>
+          <li>Performed remote troubleshooting with tools like AnyDesk to resolve OS, application and connectivity failures promptly.</li>
+          <li>Managed the user identity lifecycle: account creation, credential provisioning, access rights, password resets and timely offboarding.</li>
+          <li>Supported employee onboarding and offboarding by configuring workstations, installing software and maintaining audit-ready access logs.</li>
+          <li>Logged, tracked and documented tickets and incidents, escalating complex issues to specialised backend teams.</li>
+        </ul>
+      </article>
+
+      <article class="job">
+        <span class="when">Aug 2017 – Feb 2020</span>
+        <h3>Application Developer</h3>
+        <div class="co">Urjanet Energy Solutions · Chennai</div>
+        <ul>
+          <li>Developed application software using Java, JavaScript and HTML5, translating requirements into system designs.</li>
+          <li>Partnered with developers to diagnose and resolve defects during the build cycle.</li>
+          <li>Authored design specifications, test plans and change documentation to industry standards.</li>
+          <li>Received the GEM (Going Extra Miles) award within six months.</li>
+        </ul>
+      </article>
+
+      <article class="job">
+        <span class="when">Feb 2016 – Aug 2017</span>
+        <h3>Data Entry Analyst</h3>
+        <div class="co">Urjanet Energy Solutions · Chennai</div>
+        <ul>
+          <li>Analysed raw statistical data from multiple sources, validating and standardising records for reporting.</li>
+          <li>Helped redesign data entry procedures to streamline the workflow.</li>
+          <li>Tested new software programs before implementation.</li>
+        </ul>
+      </article>
+
+      <article class="job">
+        <span class="when">Nov 2013 – Jan 2015</span>
+        <h3>Team Leader</h3>
+        <div class="co">Itech Pvt India Ltd · Villupuram</div>
+        <ul>
+          <li>Coordinated team activities and delegated tasks to ensure efficient completion of projects.</li>
+          <li>Developed problem-solving and conflict-resolution strategies among team members.</li>
+        </ul>
+      </article>
+
+      <article class="job">
+        <span class="when">Jun 2010 – May 2013</span>
+        <h3>Financial Processor</h3>
+        <div class="co">Deccan I Services Pvt Ltd · Villupuram</div>
+        <ul>
+          <li>Reviewed financial documents and ensured accurate data entry into automated systems.</li>
+        </ul>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <p class="label">Education</p>
+    <h2>Background.</h2>
+    <div class="edu">
+      <div class="card"><strong>B.Sc, Information Technology</strong><span>Annamalai University, Villupuram · 2015</span></div>
+      <div class="card"><strong>Basics of Java</strong><span>Amity Academy · Course</span></div>
+      <div class="card"><strong>Higher Secondary</strong><span>Sri Jeyeandra Saraswathy Vidyala Hr Sec School · 2009</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <p class="label">Contact</p>
+    <h2>Let's work together.</h2>
+    <p>Looking for a data analyst who can also keep the lights on? I'd like to hear about it.</p>
+    <div class="cta">
+      <a class="btn primary" href="mailto:Vino.201098@gmail.com">Vino.201098@gmail.com</a>
+      <a class="btn" href="https://www.linkedin.com/in/vinoth-natesan-2b929113a/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap">© Vinoth Natesan · Chennai, India · <a href="https://www.linkedin.com/in/vinoth-natesan-2b929113a/" target="_blank" rel="noopener">LinkedIn</a></div></footer>
+
+</body>
+</html>
